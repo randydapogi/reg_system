@@ -208,7 +208,7 @@ class Scanner extends Component {
                                     Name: {this.state.profile.name}
                                 </div>
                                 <div>
-                                    <select name="status" value={this.state.profile.status} onChange={(event)=>{this.handleChange(event)}}>
+                                    <select name="status" value={this.state.status} onChange={(event)=>{this.handleChange(event)}}>
                                         <option value="Pending">Pending</option>
                                         <option value="Confirmed">Confirmed</option>
                                         <option value="Rejected">Rejected</option>
