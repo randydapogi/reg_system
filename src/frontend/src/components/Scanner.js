@@ -9,10 +9,19 @@ import QrReader from 'react-qr-reader'
 import Camera from 'react-html5-camera-photo';
 // import 'react-html5-camera-photo/build/css/index.css';
 
+
+import Webcam from "react-webcam";
+
 axios.defaults.xsrfCookieName = 'csrftoken'
 axios.defaults.xsrfHeaderName = 'X-CSRFToken'
 
 class Scanner extends Component {
+
+    setRef = webcam => {
+        this.webcam = webcam;
+      };
+
+
     state = {
         hasQRCode: false,
         qrCode: '',
@@ -56,7 +65,8 @@ class Scanner extends Component {
 
     onTakePhoto(data){
         this.setState({
-            image: data,
+            // image: data,
+            image: this.webcam.getScreenshot(),
             hasImage: true
         })
     }
@@ -106,6 +116,11 @@ class Scanner extends Component {
 
     render() {
         console.log(this.props)
+        const videoConstraints = {
+            width: 1280,
+            height: 720,
+            facingMode: "user"
+          };
         return(
             <div>
                 <div>
@@ -122,9 +137,21 @@ class Scanner extends Component {
                     )
                 }{
                     (this.state.hasQRCode && !this.state.hasImage) && (
-                        <Camera
-                            onTakePhoto = { (dataUri) => { this.onTakePhoto(dataUri); } }
+                        // <Camera
+                        //     onTakePhoto = { (dataUri) => { this.onTakePhoto(dataUri); } }
+                        //     />
+                        <div>
+                            <Webcam
+                            audio={false}
+                            height={350}
+                            ref={this.setRef}
+                            screenshotFormat="image/jpeg"
+                            width={350}
+                            videoConstraints={videoConstraints}
                             />
+                            <button onClick={()=>{this.onTakePhoto()}}>Capture photo</button>
+                        </div>
+                        
                     )
                 }{
                     (this.state.hasQRCode) && (
