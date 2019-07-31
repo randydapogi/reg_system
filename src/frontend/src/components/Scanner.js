@@ -27,6 +27,7 @@ class Scanner extends Component {
         qrCode: '',
         hasImage: false,
         image: '',
+        imageURI: '',
         profile: {},
         status: '',
         error: ''
@@ -96,7 +97,8 @@ class Scanner extends Component {
         this.setState({
             // image: data,
             image: new_img,
-            hasImage: true
+            hasImage: true,
+            imageURI: this.webcam.getScreenshot()
         })
     }
 
