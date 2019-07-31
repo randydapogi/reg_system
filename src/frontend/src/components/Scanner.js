@@ -190,7 +190,7 @@ class Scanner extends Component {
                             {
                                 (this.state.hasImage) && (
                                     <div>
-                                        <img src={this.state.image} />
+                                        <img src={this.state.imageURI} />
                                     </div>
                                 )
                             }
