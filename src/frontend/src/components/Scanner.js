@@ -129,7 +129,7 @@ class Scanner extends Component {
     fileUpload(toggle){
         const url = 'http://127.0.0.1:8000/api/lead/'+this.state.profile.id+'/update/';
         const formData = new FormData();
-        formData.append('file',this.state.image)
+        formData.append('file',this.state.image, "test.jpg")
         formData.append('status', this.state.status)
         const config = {
             headers: {
