@@ -138,11 +138,19 @@ class Scanner extends Component {
                 'content-type': 'multipart/form-data'
             }
         }
-        return  put(url, formData,config)
+        put(url, formData,config)
+        .then(response => {
+            alert('Sucess')
+            this.setState({
+                hasQRCode: false,
+                qrCode: '',
+                hasImage: false,
+            })
+        })
     }
 
     handleChange(event){
-        this.setState({ [event.target.name]: event.target.value });
+        this.setState({ status: event.target.value });
     }
 
     render() {
@@ -163,7 +171,7 @@ class Scanner extends Component {
                             delay={300}
                             onError={()=>{console.log('error')}}
                             onScan={data => {this.handleScan(data)}}
-                            style={{ width: '100%'}}
+                            style={{ width: '30%'}}
                             />
                     )
                 }{
@@ -210,7 +218,7 @@ class Scanner extends Component {
                                 {
                                     (this.state.hasImage) && (
                                         <div>
-                                            <button onClick={()=>{this.fileUpload(1)}}>ACCEPT</button><button onClick={()=>{this.confirmGuest(0)}}>REJECT</button>
+                                            <button onClick={()=>{this.fileUpload(1)}}>ACCEPT</button>
                                         </div>
                                     )
                                 }

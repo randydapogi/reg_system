@@ -42,7 +42,8 @@ class Form extends Component {
 	.then(response => {
 		console.log(response.data); 
 		// this.getData()
-		this.props.history.push('/profile/'+response.data.id)
+		// console.log('/profile/'+response.data.id)
+		this.props.history.push('/profile/'+response.data.product.id)
 	})
 
     // const conf = {
