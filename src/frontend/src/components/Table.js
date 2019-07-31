@@ -1,13 +1,12 @@
-import React from "react";
-import PropTypes from "prop-types";
-import key from "weak-key";
+import React from 'react';
+import PropTypes from 'prop-types';
+import key from 'weak-key';
 
-import Form from "./Form"
+import Form from './Form';
 
-const Table = ({ data }) =>
-  !data.length ? (
+const Table = ({ data }) => (!data.length ? (
     <p>Nothing to show</p>
-  ) : (
+) : (
     <div className="column">
       <h2 className="subtitle">
         Showing <strong>{data.length} items</strong>
@@ -28,8 +27,8 @@ const Table = ({ data }) =>
         </tbody>
       </table>
     </div>
-  );
+));
 Table.propTypes = {
-  data: PropTypes.array.isRequired
+  data: PropTypes.array.isRequired,
 };
 export default Table;
