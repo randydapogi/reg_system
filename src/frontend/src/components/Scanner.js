@@ -25,7 +25,7 @@ class Scanner extends Component {
     state = {
         hasQRCode: false,
         qrCode: '',
-        hasImage: true,
+        hasImage: false,
         image: '',
         profile: {},
         status: '',
