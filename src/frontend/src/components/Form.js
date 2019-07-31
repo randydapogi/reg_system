@@ -39,7 +39,11 @@ class Form extends Component {
 		url: url,
 		data: lead
 	})
-	.then(response => {console.log(response.data); this.getData()})
+	.then(response => {
+		console.log(response.data); 
+		// this.getData()
+		this.props.history.push('/profile/'+response.data.id)
+	})
 
     // const conf = {
     //   method: "post",
