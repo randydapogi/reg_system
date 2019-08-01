@@ -48,7 +48,7 @@ class ProfileList extends Component {
                                 <td>{item.hasImage ? <img src={item.image} style={{height: 100, width: 100}} /> : 'No Image'}</td>
                                 <td>{item.name}</td>
                                 <td>{item.status}</td>
-                                <td><QRCode value={item.id} style={{height: 100, width: 100}} /></td>
+                                <td><QRCode value={toString(item.id)} style={{height: 100, width: 100}} /></td>
                             </tr>
                         )}
                     </MDBTableBody>

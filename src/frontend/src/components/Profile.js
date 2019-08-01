@@ -37,7 +37,7 @@ class Profile extends Component {
                 <br></br>
                 <div>
 
-                    <QRCode value={this.state.profile.id} />
+                    <QRCode value={toString(this.state.profile.id)} />
                     {/* <QRCode value={this.state.profile.name} /> */}
                 </div>
 

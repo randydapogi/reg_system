@@ -32,7 +32,9 @@ module.exports = {
       },
       {
         test: /\.(ttf|otf|eot|svg|woff(2)?)(\?[a-z0-9]+)?$/,
+        // path: __dirname,
         loaders: ["file-loader"]
+        // loaders: 'file-loader?name=./static/frontend/[name].[ext]'
       },
           {
             test: /\.(png|jpg|gif|svg)$/,
